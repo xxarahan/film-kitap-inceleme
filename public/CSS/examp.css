@@ -1,0 +1,420 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    
+}
+
+header {
+    background-color: #f4f4f4;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    color: #333333;
+    text-align: center;
+    padding: 10px 0;
+    a{
+        color: #fff;
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        font-size: 15px;
+        /* margin-bottom: 20px; */
+    }
+    a:nth-child(1) {
+        top: 0; /* İlk bağlantıyı en üstte konumlandırır */
+    }
+    
+    a:nth-child(2) {
+        top: 40px; /* İkinci bağlantıyı bir miktar aşağıda konumlandırır */
+    }
+    a::nth-child(3){
+        top: 80px;
+    }
+    
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1px;
+}
+
+.film-section, .kitap-section {
+    display: flex;
+    justify-content: flex-start; /* İçerikleri ortalar */
+    margin-bottom: 10px; /* Alt boşluk */
+}
+
+.item {
+    display: flex;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    margin: 10px 0;
+    padding: 8px;
+    width: 165px;
+    text-align: center;
+    flex-direction: column; /* Dikey hizalama */
+    justify-content: space-between; 
+    
+    
+    
+}
+
+.cover-image {
+    width: 160px;
+    height: 140px;
+    border-radius: 8px;
+}
+.film-info {
+    display: grid;
+    grid-template-columns:  1fr;
+    background-color: #f0f0f0; /* Arka plan rengi */
+    padding: 5px; /* İçerik ile kenar arasında boşluk */
+    border-radius: 5px; /* Kenarları yuvarlatma */
+    margin-top: 10px; /* Üstten boşluk */
+    flex-grow: 1;
+    
+}
+.film-info button:hover{
+    background-color: #c56d1b3f; /* Hover efekti */
+    cursor:pointer;
+    border:none;
+}
+.film-info p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical; /* Dikey yönlendirme */
+    line-clamp: 3;     /* Gösterilecek maksimum satır sayısı */
+    max-height: 3em;         /* Maksimum yükseklik (satır yüksekliği * satır sayısı) */
+
+}
+
+
+
+
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #f4f4f4;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    /* color: #8f5656;
+    position: absolute; */
+    bottom: 0;
+    color: black;
+    width: 100%;
+    margin-bottom: 0;
+   
+}
+/* Slider container */
+.slider-container {
+    width: 80%;
+    overflow: hidden; /* Yalnızca içerik görünür */
+    position: relative;
+    display: flex; /* Flexbox kullanarak içerikleri yan yana diz */
+    justify-content: center; /* Ortala */
+    align-items: center; /* Dikey ortala */
+    margin: 50px auto; /* Üst ve alt boşluk, ortalamak için */
+    
+    max-width: 1100px; /* Maksimum genişlik */
+    overflow: hidden; /* Taşan içerikleri gizle */
+    border: 2px solid #ccc; /* Kenarlık */
+    border-radius: 10px; /* Kenarları yuvarlat */
+    background-color: #fff; /* Arka plan rengi */
+}
+
+/* Slider içerik alanı */
+.slider {
+    display: flex;
+    animation: slide 15s linear infinite; /* Kayma animasyonu */
+}
+
+.slider img {
+    width: 155px; /* Ekranın alabileceği kadar genişlik */
+    height: auto;
+    max-height: 200px;
+    border: 2px solid #ffc107; /* Kenar rengi */
+    border-radius: 10px; /* Kenar yuvarlama */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Gölge efekti */
+    transition: transform 0.03s; /* Geçiş efekti */
+}
+.slider img:hover {
+    transform: scale(1.05); /* Hover efekti */
+}
+
+
+/* Kayma animasyonu */
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+        
+    }
+    
+    100% {
+        transform: translateX(-100%);
+    }
+    
+}
+
+
+.text-center {
+    display: flex; /* Flexbox kullanarak ortalamak için */
+    justify-content: center; /* Yatayda ortala */
+    align-items: center; /* Dikeyde ortala */
+    flex-direction: column; /* Dikey hizalama */
+    margin: 0 auto; /* Otomatik kenar boşluğu ile ortala */
+}
+
+.text-center h1 {
+    font-size: 2.9rem; /* Başlık boyutu */
+    font-weight: bold; /* Kalın yazı */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Gölge efekti */
+    margin: 0; /* Varsayılan üst ve alt boşlukları kaldır */
+}
+/* Navbar stili */
+.menu-container {
+    /*position: relative; /* Mutlak konumlandırma */
+    top: 20px; /* Üstten 20px boşluk */
+    right: 20px; /* Sağdan 20px boşluk */
+    background-color: #f4f4f4; /* Arka plan rengi */
+    border-radius: 10px; /* Kenar yuvarlama */
+    /*box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;*/
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    padding: 10px; /* İç boşluk */
+    /*float: right;*/
+    display: flex;
+}
+
+.menu-item {
+    display: flex; /* Alt alta sıralanması için block yap */
+    color: #007bff; /* Yazı rengi */
+    text-decoration: none; /* Altı çizili görünüm yok */
+    padding: 5px 0; /* Üst ve alt boşluk */
+    transition: color 0.3s; /* Renk geçişi */
+    margin-right: 10px;
+    
+}
+
+.menu-item:hover {
+    color: #0056b3; /* Hover sırasında renk değişimi */
+}
+
+/* Hover efektleri */
+.container {
+    display: flex; /* Flexbox kullanarak yan yana yerleştirme */
+    max-width: 1200px; /* Maksimum genişlik */
+    margin: 20px auto; /* Ortada hizalama */
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.containerleft {
+    flex: 1; /* Sol div tam genişlik kaplar */
+    
+    padding: 20px; /* İç boşluk */
+    text-align: center; /* Metni ortala */
+    background-color: #e4e4e4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
+    min-height: 600px;
+    img{
+        width: 280px;
+        height: 370px;
+        border-radius: 10px;
+        
+    }
+    h4{
+        background-color: rgb(198, 207, 213);
+        border-radius: 4px;
+        padding: 4px;
+    
+    }
+    .alan{
+        display: flex;
+    }
+    
+    
+}
+
+
+.right-container {
+    flex: 1; /* Sağ div tam genişlik kaplar */
+    display: flex;
+    flex-direction: column; /* Dikey hizalama */
+    position: relative;
+    background-color: #e4e4e4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
+    /*width: 100%;*/
+    /*align-items: stretch;*/
+    
+    
+}
+
+.comments-containermini {
+    /*width: 100%; /* Tam genişlik */
+    height: auto; /* Yükseklik otomatik ayarlanacak */
+    max-height: 300px; /* Maksimum yükseklik */
+    background-color: #e4e4e4; /* Arka plan rengi */
+    border-radius: 10px; /* Kenar yuvarlama */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
+    padding: 15px; /* İç boşluk */
+    display: flex; /* Flexbox kullanımı */
+    flex-direction: column; /* Dikey hizalama */
+    gap: 10px; /* Elemanlar arası boşluk */
+}
+.comments-cotaniermini form{
+    display: flex;
+    width: 100%;
+}
+
+.comments-containermini textarea {
+    width: 99%; /* Tam genişlik */
+    height: 60px; /* Yükseklik */
+    /*padding: 10px; /* İç boşluk */
+    border: 1px solid #ccc; /* Kenar rengi */
+    border-radius: 4px; /* Kenar yuvarlama */
+    resize: none; /* Yeniden boyutlandırmayı devre dışı bırak */
+    font-size: 14px; /* Yazı boyutu */
+}
+
+.comments-containermini select {
+    width: 100%; /* Tam genişlik */
+    padding: 10px; /* İç boşluk */
+    
+    border: 1px solid #ccc; /* Kenar rengi */
+    border-radius: 4px; /* Kenar yuvarlama */
+    font-size: 14px; /* Yazı boyutu */
+    background-color: #fff; /* Arka plan rengi */
+}
+
+.comments-containermini button {
+    width: 100%; /* Tam genişlik */
+    padding: 10px; /* İç boşluk */
+    border: none; /* Kenar yok */
+    border-radius: 4px; /* Kenar yuvarlama */
+    /*background-color: #28a745; /* Buton rengi */
+    background-color: rgb(72, 106, 107);
+    color: white; /* Yazı rengi */
+    font-size: 14px; /* Yazı boyutu */
+    cursor: pointer; /* İmleç değişimi */
+    transition: background-color 0.3s; /* Geçiş efekti */
+}
+
+.comments-containermini button:hover {
+    
+    background-color: #218838; /* Hover rengi */
+}
+
+/* Placeholder rengi */
+.comments-containermini textarea::placeholder,
+.comments-containermini select::placeholder {
+    color: #aaa; /* Placeholder rengi */
+    opacity: 1; /* Opaklık */
+}
+
+.comments-container {
+    /*width: 100%; /* Tam genişlik */
+    /*max-width: 500px;*/
+    height: calc(100% - 100px); /* Kalan alanı kaplasın */
+    flex: 1; /* Kalan alanı kapla */
+    background-color: #e4e4e4; /* Arka plan rengi */
+    border-radius: 10px; /* Kenar yuvarlama */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
+    padding: 20px; /* İç boşluk */
+    overflow-y: auto; /* Taşma durumunda kaydırma çubuğu göster */
+    max-height: 500px; /* Maksimum yükseklik ayarı */
+    /*align-items: stretch;*/
+}
+
+.comment-list {
+    list-style-type: none; /* Liste işaretlerini kaldır */
+    padding: 0; /* Varsayılan iç boşluğu kaldır */
+}
+
+.comment-list li {
+    
+    background-color: #f9f9f9; /* Yorum arka plan rengi */
+    border: 1px solid #ddd; /* Kenar rengi */
+    border-radius: 5px; /* Kenar yuvarlama */
+    padding: 15px; /* İç boşluk */
+    margin-bottom: 10px; /* Alt boşluk */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Gölge efekti */
+    transition: background-color 0.3s; /* Arka plan rengi geçiş efekti */
+    word-wrap: break-word; /* Kelimeleri kırarak taşmayı önler */
+    overflow-wrap: break-word; /* Kelimeleri kırarak taşmayı önler (modern tarayıcılar için) */
+    width: 100%; /* Maksimum genişlik */
+    max-width: 511px;
+    overflow-y: auto;
+}
+
+.comment-list li button:hover {
+    background-color: #c56d1b3f; /* Hover efekti */
+    cursor:pointer;
+    border:none;
+}
+
+.comment-list li:hover {
+    background-color: #f1f1f1; /* Hover efekti */
+}
+
+.comment-list small {
+    color: #0056b3; /* Küçük yazı rengi */
+}
+
+.comment-list strong {
+    color: #333; /* Kalın yazı rengi */
+}
+
+.carousel {
+    position: relative;
+    width: 915px;
+    height: 486px;
+    overflow: hidden;
+    
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 5.5s ease;
+}
+
+.carousel-slide {   display: flex;}
+.carousel-slidekitap{display: flex;}
+
+.film {
+    min-width: 183px;/*184.8px; /* 924px / 5 */
+    height: 475px;
+    text-align: center;
+}
+
+.film img {
+    width: 100%;
+    height: auto;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(226, 14, 14, 0.7);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
+
